@@ -1,0 +1,6 @@
+name: "NVIDIA visible devices env var"
+description: |
+  "This Trailer.dev recommendation will automatically unset NVIDIA_VISIBLE_DEVICES and CUDA_VISIBLE_DEVICES,
+   so that they don't conflict with the selected GPUs on the Trailer.dev workspace creation page."
+runtime: go
+import: github.com/trailer-dev/nvidia-visible-devices-recommendation
