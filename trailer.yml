@@ -4,3 +4,4 @@ description: |
    so that they don't conflict with the selected GPUs on the Trailer.dev workspace creation page."
 runtime: go
 import: github.com/trailer-dev/nvidia-visible-devices-recommendation
+type: workspace
