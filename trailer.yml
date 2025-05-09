@@ -1,7 +1,7 @@
-name: "NVIDIA visible devices env var"
+name: "Automatic SHM size increase for Pytorch"
 description: |
-  "This Trailer.dev recommendation will automatically unset NVIDIA_VISIBLE_DEVICES and CUDA_VISIBLE_DEVICES,
-   so that they don't conflict with the selected GPUs on the Trailer.dev workspace creation page."
+  "This Trailer.dev recommendation will automatically increase the shared memory (SHM) size in your workspace,
+  when torch is detected in your packages to 1/4th of your system RAM or 4GB, whichever is lower."
 runtime: go
-import: github.com/trailer-dev/nvidia-visible-devices-recommendation
+import: github.com/trailer-dev/nvidia-pytorch-shm-size
 type: workspace
