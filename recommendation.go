@@ -3,6 +3,7 @@ package recommendation
 import (
 	"encoding/json"
 	"math"
+	"errors"
 )
 
 const Bytes4GB = 4294967296.0
@@ -23,6 +24,10 @@ func Match(data []byte) (bool, error) {
 		return false, err
 	}
 
+	if workspace.Image == nil || workspace.Host == nil {
+		return false, nil
+	}
+
 	// Check if ANY environment has pytorch
 	for _, env := range workspace.Image.Configuration.Environments {
 		if environmentHasPytorch(env) {
@@ -39,6 +44,10 @@ func Recommend(data []byte) ([]byte, error) {
 
 	if err := json.Unmarshal(data, &workspace); err != nil {
 		return nil, err
+	}
+
+	if workspace.Host == nil {
+		return nil, errors.New("missing host")
 	}
 
 	workspace.Resources.ShmSize = int64(math.Min(Bytes4GB, float64(workspace.Host.TotalMemory/4)))

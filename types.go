@@ -46,6 +46,6 @@ type Host struct {
 
 type Workspace struct {
 	Resources Resources `json:"resources,omitempty"`
-	Image     Image     `json:"image,omitempty"`
-	Host      Host      `json:"host"`
+	Image     *Image     `json:"image,omitempty"`
+	Host      *Host      `json:"host"`
 }
